@@ -31,13 +31,19 @@ function App() {
   const [{ wallet, connecting }, connect, disconnect] = useConnectWallet();
 
   // create an ethers provider
-  let ethersProvider;
+  let ethersProvider: any;
 
   if (wallet) {
     ethersProvider = new ethers.providers.Web3Provider(wallet.provider, "any");
   }
 
   const connectedWallets = useWallets();
+
+  const [chainId, setChainId] = useState(1);
+
+  useEffect(() => {
+    ethersProvider?.getNetwork().then((res: any) => setChainId(res.chainId));
+  }, [ethersProvider]);
 
   useEffect(() => {
     if (!connectedWallets.length) return;
@@ -66,29 +72,98 @@ function App() {
     }
   }, [connect]);
 
+  const lightTheme = {
+    text: "#222222",
+    subText: "#5E5E5E",
+    background: "#FFFFFF",
+    tab: "#FBFBFB",
+    inputBackground: "#F5F5F5",
+    interactive: "#E2E2E2",
+    stroke: "#505050",
+    accent: "#28E0B9",
+    success: "#189470",
+    warning: "#FF9901",
+    error: "#FF537B",
+    fontFamily: "Work Sans",
+    borderRadius: "16px",
+    buttonRadius: "999px",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.04)",
+  };
+
+  const darkTheme = {
+    text: "#FFFFFF",
+    subText: "#A9A9A9",
+    background: "#1C1C1C",
+    tab: "#313131",
+    inputBackground: "#0F0F0F",
+    interactive: "#292929",
+    stroke: "#505050",
+    accent: "#28E0B9",
+    success: "#189470",
+    warning: "#FF9901",
+    error: "#FF537B",
+    fontFamily: "Work Sans",
+    borderRadius: "16px",
+    buttonRadius: "999px",
+    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.04)",
+  };
+
+  const [theme, setTheme] = useState<any>(darkTheme);
+
   return (
     <div className="App">
-      <Widget tokenList={[]} provider={ethersProvider} />
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+      <Widget
+        theme={theme}
+        tokenList={[]}
+        provider={ethersProvider}
+        defaultTokenOut={
+          chainId === 1
+            ? "0xdeFA4e8a7bcBA345F687a2f1456F5Edd9CE97202"
+            : "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+        }
+      />
+      <h1>KyberSwap Widget Demo</h1>
       <div className="card">
         <button onClick={() => (wallet ? disconnect(wallet) : connect())}>
           {!wallet ? "connect wallet" : "disconnect"}
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <p className="read-the-docs">Choose theme</p>
+
+      <input
+        type="radio"
+        id="dark"
+        name="age"
+        value="dark"
+        onChange={(e) => {
+          setTheme(darkTheme);
+        }}
+      />
+      <label htmlFor="dark">Dark theme</label>
+      <br />
+      <input
+        type="radio"
+        id="light"
+        name="age"
+        value="light"
+        onChange={(e) => {
+          setTheme(lightTheme);
+        }}
+      />
+      <label htmlFor="light">Light theme</label>
+      <br />
+      <input
+        type="radio"
+        id="custom"
+        name="age"
+        value="custom"
+        onChange={(e) => {
+          setTheme(undefined);
+        }}
+      />
+      <label htmlFor="custom">Custom</label>
+      <br />
+      <br />
     </div>
   );
 }
