@@ -1214,6 +1214,20 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@kyberswap/widgets@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@kyberswap/widgets/-/widgets-0.0.1.tgz#16e5eefffee3ec2ab9ddc158abefc7fdb882ab25"
+  integrity sha512-j75hP/MWaIhH7IncLRgzJAFdLIl1N6ODCPU0yaN+Gbi60xMKNdHbC6oFktPf57vky5ZXKZeSDLOCym5X93RVnA==
+  dependencies:
+    "@popperjs/core" "^2.11.6"
+    "@reach/portal" "^0.18.0"
+    ethers "^5.7.0"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    react-popper "^2.3.0"
+    styled-components "^5.3.5"
+    vite-plugin-svgr "^2.2.1"
+
 "@popperjs/core@^2.11.6":
   version "2.11.6"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"
@@ -2086,10 +2100,10 @@ json5@^2.2.1:
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.1.tgz#655d50ed1e6f95ad1a3caababd2b0efda10b395c"
   integrity sha512-1hqLFMSrGHRHxav9q9gNjJ5EXznIxGVO09xQRrwplcS8qs28pZ8s8hupZAmqDwZUmVZ2Qb2jnyPOWcDH8m8dlA==
 
-kyberswap-widgets@^0.0.0-demo18:
-  version "0.0.0-demo18"
-  resolved "https://registry.yarnpkg.com/kyberswap-widgets/-/kyberswap-widgets-0.0.0-demo18.tgz#696f17458e692092081a49019f1548174ff127f7"
-  integrity sha512-GhrPMcmXkE8SS5H15ripsKTWBcaFuXzTNPp1sI65w1HvkQ47r6cyxjZBrZFGcvFFkJ3Ez98l2ZuC9qUzNJ4ELQ==
+kyberswap-widgets@^0.0.0-demo19:
+  version "0.0.0-demo19"
+  resolved "https://registry.yarnpkg.com/kyberswap-widgets/-/kyberswap-widgets-0.0.0-demo19.tgz#f15a6369392bb43547d978da1b47c7147e764ed5"
+  integrity sha512-+VzYuNeeosGMz0Gy+7zH2Y7tiNNhr4jm8dTUGE1Bid1ImjJrL3LrSjRGKGiOKWzfwEL386fIlwIe952ODjnsuA==
   dependencies:
     "@popperjs/core" "^2.11.6"
     "@reach/portal" "^0.18.0"

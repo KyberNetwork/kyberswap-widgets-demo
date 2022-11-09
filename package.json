@@ -9,10 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@kyberswap/widgets": "^0.0.1",
     "@web3-onboard/injected-wallets": "^2.2.4",
     "@web3-onboard/react": "^2.3.5",
     "ethers": "^5.7.1",
-    "kyberswap-widgets": "^0.0.0-demo18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

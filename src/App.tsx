@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
-import { Widget } from "kyberswap-widgets";
+import { Widget } from "@kyberswap/widgets";
 import { init, useWallets, useConnectWallet } from "@web3-onboard/react";
 import injectedModule from "@web3-onboard/injected-wallets";
 import { ethers } from "ethers";
@@ -75,9 +75,9 @@ function App() {
   const lightTheme = {
     text: "#222222",
     subText: "#5E5E5E",
-    background: "#FFFFFF",
-    tab: "#FBFBFB",
-    inputBackground: "#F5F5F5",
+    primary: "#FFFFFF",
+    dialog: "#FBFBFB",
+    secondary: "#F5F5F5",
     interactive: "#E2E2E2",
     stroke: "#505050",
     accent: "#28E0B9",
@@ -93,9 +93,9 @@ function App() {
   const darkTheme = {
     text: "#FFFFFF",
     subText: "#A9A9A9",
-    background: "#1C1C1C",
-    tab: "#313131",
-    inputBackground: "#0F0F0F",
+    primary: "#1C1C1C",
+    dialog: "#313131",
+    secondary: "#0F0F0F",
     interactive: "#292929",
     stroke: "#505050",
     accent: "#28E0B9",
